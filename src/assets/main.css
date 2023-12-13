@@ -1,7 +1,10 @@
-@import './base.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#app {
+    min-height: 100vh;
+  }
 
 .scroll::-webkit-scrollbar {
     width: 8px;
