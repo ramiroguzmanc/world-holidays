@@ -81,12 +81,12 @@ fetchCountries()
 
 <template>
   <header class="text-center flex flex-col justify-center items-center">
-    <h1 class="text-4xl text-white font-semibold my-8">World Holidays</h1>
+    <h1 class="text-4xl dark:text-white font-semibold my-8">World Holidays</h1>
     <section class="items-end max-w-lg justify-center space-y-4 w-full md:space-y-0 md:space-x-8 md:max-w-4xl md:flex">
       <div>
         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Country</label>
         <select id="countries" v-model="selectedCountry"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500">
           <option v-for="(country) in countries" :key="country.countryCode" :value="country.countryCode">
             {{ country.name }}
           </option>
@@ -95,15 +95,14 @@ fetchCountries()
       <div>
         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Year</label>
         <input type="number" id="year" v-model="selectedYear"
-          class="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500">
       </div>
-      <button @click="handleHolidaySearch"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-lg">
+      <button @click="handleHolidaySearch" class="bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-8 rounded-lg">
         Search
       </button>
     </section>
   </header>
-  <main class="mt-16 mb-8 lg:flex xl:h-[73vh]" v-if="!!holidays.length">
+  <main class="mt-16 mb-8 lg:flex xl:h-[73vh] dark:text-white" v-if="!!holidays.length">
     <section class="text-center lg:text-start lg:place-content-center lg:w-4/6 lg:grid">
       <h1 class="text-4xl">Next holiday...</h1>
       <div class="flex flex-col lg:flex-row items-center py-4 lg:p-8 lg:items-end">
@@ -131,9 +130,9 @@ fetchCountries()
             <p class="text-sm font-medium text-gray-900 dark:text-white">Holiday</p>
           </div>
           <div v-for="holiday in holidays" :key="holiday.date" class="flex items-center justify-between px-4 py-2"
-            :class="{ 'bg-red-900 rounded': holiday.date === nextHoliday?.date }">
-            <p class="text-sm text-gray-900 dark:text-white">{{ (holiday.date) }}</p>
-            <p class="text-sm text-gray-900 dark:text-white text-end max-w-[70%]">{{ holiday.localName }}</p>
+            :class="{ 'rounded bg-red-900 text-white': holiday.date === nextHoliday?.date }">
+            <p class="">{{ (holiday.date) }}</p>
+            <p class=" text-end max-w-[70%]">{{ holiday.localName }}</p>
           </div>
         </div>
       </div>
